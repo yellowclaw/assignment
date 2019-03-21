@@ -1,0 +1,10 @@
+<div *ngIf="opportunities">
+  <p>
+    menu-items works!
+  </p>
+  <div *ngFor="let opportunity of opportunities">
+    <p>{{opportunity.title}}</p>
+    <img [src]="opportunity.img" alt="">
+  </div>
+</div>
+
