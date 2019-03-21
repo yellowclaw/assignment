@@ -9,7 +9,7 @@ export class OpportunitiesService {
 
   constructor(private http: HttpClient) { }
 
-  public getOpportunities() {
+  getOpportunities() {
     return this.http.get(this.opportunitiesUrl);
   }
 }

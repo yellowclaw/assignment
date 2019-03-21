@@ -16,14 +16,18 @@ export interface Opportunity {
 export class OpportunitiesComponent implements OnInit {
   opportunities: Opportunity[] = [];
 
-  constructor(private menuItemsService: OpportunitiesService) { }
+  constructor(private opportunityService: OpportunitiesService) { }
 
   ngOnInit() {
-    this.menuItemsService.getOpportunities().subscribe((res: Opportunity[]) => {
+    this.getOpportunities();
+  }
+
+  private getOpportunities() {
+    this.opportunityService.getOpportunities().subscribe((res: Opportunity[]) => {
+      console.log(res);
       this.opportunities = res;
     }, err => {
       console.log('Opportunity error', err);
     });
   }
-
 }
