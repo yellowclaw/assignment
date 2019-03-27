@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { OpportunitiesService } from './opportunities.service';
-import { HttpErrorResponse } from '@angular/common/http';
 
 export interface Opportunity {
   title: string;
@@ -15,7 +14,7 @@ export interface Opportunity {
 })
 
 export class OpportunitiesComponent implements OnInit {
-  opportunities: Opportunity[];
+  opportunities: Opportunity[] = [];
 
   constructor(private opportunityService: OpportunitiesService) { }
 
@@ -25,8 +24,9 @@ export class OpportunitiesComponent implements OnInit {
 
   private getOpportunities() {
     this.opportunityService.getOpportunities().subscribe((res: Opportunity[]) => {
+      console.log(res);
       this.opportunities = res;
-    }, (err: HttpErrorResponse) => {
+    }, err => {
       console.log('Opportunity error', err);
     });
   }
