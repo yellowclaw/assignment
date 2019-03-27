@@ -1,0 +1,39 @@
+{
+  "payPalImg": "http://localhost:3000/images/paypal.png",
+  "listImg": "http://localhost:3000/images/arrow.png",
+  "items": [
+    {
+      "title": "COMPANY",
+      "list": [
+        {
+          "one": "About us",
+          "two": "Career",
+          "three": "Our works / References",
+          "four": "Contact us"
+        }
+      ]
+    },
+    {
+      "title": "OUR SERVICES",
+      "list": [
+        {
+          "one": "Lorem ipsum",
+          "two": "Dolor sit amet",
+          "three": "Nullam in ultricies",
+          "four": "Vestibulum at sapie"
+        }
+      ]
+    },
+    {
+      "title": "COMPANY",
+      "list": [
+        {
+          "one": "588 125 4666",
+          "two": "support@yourdomain.com",
+          "three": "5 Place Road Park",
+          "four": "New York 24856"
+        }
+      ]
+    }
+  ]
+}

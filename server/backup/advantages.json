@@ -1,0 +1,26 @@
+{
+  "title": "We are no. 1... WHY?",
+  "listImg": "http://localhost:3000/images/check.png",
+  "firstPanel": [
+    {
+      "description": "Best hardware around the world"
+    },
+    {
+      "description": "10 TB Storage for all our clients"
+    },
+    {
+      "description": "Easy powerfull control panel with special tools"
+    }
+  ],
+  "secondPanel": [
+    {
+      "description": "Free updates every month"
+    },
+    {
+      "description": "Managed uptime, OS support & security"
+    },
+    {
+      "description": "24/7 customer via phone and email to help you implement"
+    }
+  ]
+}

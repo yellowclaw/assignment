@@ -1,164 +1,44 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
+
 const port = 3000;
 const app = express();
-app.use('/images', express.static('images'));
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-let opportunities = [
-  {
-    title: 'LOREM IPSUM',
-    img: `http://localhost:${port}/images/image.png`,
-    description: 'Aenean consequat at tortor ac feugiat. Praesent at tristique ipsum. Cras henrit volutpat vulputate.',
-  },
-  {
-    title: 'DOLOR SIT AMET',
-    img: `http://localhost:${port}/images/music.png`,
-    description: 'Aenean consequat at tortor ac feugiat. Praesent at tristique ipsum. Cras henrit volutpat vulputate.',
-  },
-  {
-    title: 'NULLAM IN ULTRICIES',
-    img: `http://localhost:${port}/images/record.png`,
-    description: 'Aenean consequat at tortor ac feugiat. Praesent at tristique ipsum. Cras henrit volutpat vulputate.',
-  },
-  {
-    title: 'VESTIBULUM AT SAPIE',
-    img: `http://localhost:${port}/images/video.png`,
-    description: 'Aenean consequat at tortor ac feugiat. Praesent at tristique ipsum. Cras henrit volutpat vulputate.',
-  },
-];
+/** controllers */
+const headerController = require('./controllers/heder.controller');
+const sloganController = require('./controllers/slogan.controller');
+const opportunityController = require('./controllers/opportunity.controller');
+const advantagesController = require('./controllers/advantages.controller');
+const customersController = require('./controllers/customers.controller');
+const logosController = require('./controllers/logos.controller');
+const footerController = require('./controllers/footer.controller');
+app.use('/images', express.static('images'));
 
-let header = {
-  logoText: 'your logo',
-  navItems: [
-    {
-      description: 'home'
-    },
-    {
-      description: 'our services'
-    },
-    {
-      description: 'References / Works'
-    },
-    {
-      description: 'Career'
-    },
-    {
-      description: 'contact us'
-    },
-  ]
-};
+/** HEADER */
+app.get('/api/header', headerController.getHeader);
 
-let slogan = {
-  description: 'We are your best choice',
-  background: `http://localhost:${port}/images/slogan-background.png`,
-  logo: `http://localhost:${port}/images/slogan-logo.png`
-};
+/** SLOGAN */
+app.get('/api/slogan', sloganController.getSlogan);
 
-let advantages = {
-  title: 'We are no. 1... WHY?',
-  listImg: `http://localhost:${port}/images/check.png`,
-  firstPanel: [
-    {
-      description: 'Best hardware around the world'
-    },
-    {
-      description: '10 TB Storage for all our clients'
-    },
-    {
-      description: 'Easy powerfull control panel with special tools'
-    }
-  ],
-  secondPanel: [
-    {
-      description: 'Free updates every month'
-    },
-    {
-      description: 'Managed uptime, OS support & security'
-    },
-    {
-      description: '24/7 customer via phone and email to help you implement'
-    }
-  ]
-};
+/** OPPORTUNITY */
+app.get('/api/opportunities', opportunityController.getOpportunities);
+app.post('/api/opportunities', opportunityController.postOpportunities);
+app.delete('/api/opportunities/:id', opportunityController.deleteOpportunity);
 
-let customers = {
-  number: 200.000
-};
+/** ADVANTAGES */
+app.get('/api/advantages', advantagesController.getAdvantages);
 
-let logos = {
-  firstLogo: `http://localhost:${port}/images/logos1.png`,
-  secondLogo: `http://localhost:${port}/images/logos2.png`
-};
+/** CUSTOMERS */
+app.get('/api/customers', customersController.getCustomers);
 
-let footer = {
-  payPalImg: `http://localhost:${port}/images/paypal.png`,
-  listImg: `http://localhost:${port}/images/arrow.png`,
-  items: [
-    {
-      title: 'COMPANY',
-      list: [
-        {
-          one: 'About us',
-          two: 'Career',
-          three: 'Our works / References',
-          four: 'Contact us'
-        }
-      ]
-    },
-    {
-      title: 'OUR SERVICES',
-      list: [
-        {
-          one: 'Lorem ipsum',
-          two: 'Dolor sit amet',
-          three: 'Nullam in ultricies',
-          four: 'Vestibulum at sapie'
-        }
-      ]
-    },
-    {
-      title: 'COMPANY',
-      list: [
-        {
-          one: '588 125 4666',
-          two: 'support@yourdomain.com',
-          three: '5 Place Road Park',
-          four: 'New York 24856'
-        }
-      ]
-    },
-  ]
-};
+/** LOGOS */
+app.get('/api/logos', logosController.getLogos);
 
+/** FOOTER */
+app.get('/api/footer', footerController.getFooter);
 
-app.get('/api/header', (req, res) => {
-  res.send(header);
-});
-
-app.get('/api/slogan', (req, res) => {
-  res.send(slogan);
-});
-
-app.get('/api/opportunities', (req, res) => {
-  res.send(opportunities);
-});
-
-app.get('/api/advantages', (req, res) => {
-  res.send(advantages);
-});
-
-app.get('/api/customers', (req, res) => {
-  res.send(customers);
-});
-
-app.get('/api/logos', (req, res) => {
-  res.send(logos);
-});
-
-app.get('/api/footer', (req, res) => {
-  res.send(footer);
-});
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

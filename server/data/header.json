@@ -1,0 +1,20 @@
+{
+  "logoText": "your logo",
+  "navItems": [
+    {
+      "description": "home"
+    },
+    {
+      "description": "our services"
+    },
+    {
+      "description": "References / Works"
+    },
+    {
+      "description": "Career"
+    },
+    {
+      "description": "contact us"
+    }
+  ]
+}
