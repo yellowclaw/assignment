@@ -12,6 +12,6 @@ export class OpportunitiesService {
   constructor(private http: HttpClient) { }
 
   getOpportunities(): Observable<Opportunity[]> {
-    return this.http.get(this.opportunitiesUrl);
+    return this.http.get<Opportunity[]>(this.opportunitiesUrl);
   }
 }
